@@ -1,8 +1,11 @@
 import React, {Component, useContext,useEffect} from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
-import { Card } from "../component/card";
+import { CardCharacter } from "../component/cardCharacter";
+import { CardPlanet } from "../component/cardPlanet";
+
+import { Link } from "react-router-dom";
+
 
 
 export const Home = () => {
@@ -24,21 +27,21 @@ export const Home = () => {
 		<div className="scrolling-wrapper">
 			{store.characters.map((character) =>{
 				return (
-					<Card name = {character.name} key ={character.uid} />
+					<CardCharacter name = {character.name} key ={character.uid} id={character.uid} />
 				)
 			})}
 		</div>
 		<div className="scrolling-wrapper">
 			{store.planets.map((planet) =>{
 				return (
-					<Card name = {planet.name} key ={planet.uid} />
+					<CardPlanet name = {planet.name} key ={planet.uid} id={planet.uid}/>
 				)
 			})}
 		</div>
 		<div className="scrolling-wrapper">
 			{store.vehicles.map((vehicle) =>{
 				return (
-					<Card name = {vehicle.name} key ={vehicle.uid} />
+					<CardCharacter name = {vehicle.name} key ={vehicle.uid} />
 				)
 			})}
 		</div>
