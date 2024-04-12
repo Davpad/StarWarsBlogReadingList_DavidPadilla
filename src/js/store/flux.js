@@ -120,6 +120,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
+			getVehicle:(id) => {
+				fetch ("https://www.swapi.tech/api/vehicles/"+id, {
+					method: "GET",
+				})
+				.then((response)=> {
+					return response.json()
+				})
+				.then((data)=>{
+					setStore({vehicle:data.result});
+					// console.log(data.result);
+				})
+				.catch((error)=>{
+					console.log(error)}
+				)
+
+			},
 
 			addFavorite:(name)=> {
 				setStore({favorites:getStore().favorites.concat(name)})
@@ -127,8 +143,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			deleteFavorite:(index)=>{
-				const filteredFavorites = getstore().favorites.filter((i) => i !== index);
-				setStore({favorites: filteredFavorites})
+				const filteredFavorites = getStore().favorites.filter((i) => i !== index);
+				setStore({favorites: filteredFavorites});
 			},
 
 			changeColor: (index, color) => {

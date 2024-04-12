@@ -3,7 +3,7 @@ import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { CardCharacter } from "../component/cardCharacter";
 import { CardPlanet } from "../component/cardPlanet";
-
+import { CardVehicle } from "../component/cardVehicle";
 import { Link } from "react-router-dom";
 
 
@@ -24,6 +24,7 @@ export const Home = () => {
 
 	return (
 		<>
+		<h1>Characters</h1>
 		<div className="scrolling-wrapper">
 			{store.characters.map((character) =>{
 				return (
@@ -31,6 +32,7 @@ export const Home = () => {
 				)
 			})}
 		</div>
+		<h1>Planets</h1>
 		<div className="scrolling-wrapper">
 			{store.planets.map((planet) =>{
 				return (
@@ -38,10 +40,11 @@ export const Home = () => {
 				)
 			})}
 		</div>
+		<h1>Vehicles</h1>
 		<div className="scrolling-wrapper">
 			{store.vehicles.map((vehicle) =>{
 				return (
-					<CardCharacter name = {vehicle.name} key ={vehicle.uid} />
+					<CardVehicle name = {vehicle.name} key ={vehicle.uid} id={vehicle.uid} />
 				)
 			})}
 		</div>
