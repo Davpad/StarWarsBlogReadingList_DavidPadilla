@@ -20,10 +20,10 @@ export const DetailsCharacter = () => {
 		<>
 		<div className="card mb-3">
             <div className="row g-0">
-                <div className="col-md-4">
+                <div className="col-md-3">
                     <img src={`https://starwars-visualguide.com/assets/img/characters/${params.id}.jpg`} className="img-fluid rounded-start" alt="..."/>
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-9">
                     <div className="card-body">
                         <h5 className="card-title">{store.character?.properties?.name}</h5>
                         <p className="card-text">{store.character?.description}</p>
