@@ -147,6 +147,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({favorites: filteredFavorites});
 			},
 
+			login: async(email,password) => {
+				try{
+					let response = await fetch('https://stunning-system-jjjj99j6jqpvfpj9j-3000.app.github.dev/login',{
+						method: POST,
+						headers:{
+							'Content-Type':'aplication/json'
+						},
+						body: JSON.stringify({
+							"email":email,
+							"password":password
+						})
+					})
+					let data = await response.json
+					console.log(data);
+					if (response.status = 200){
+						localStorage.setItem("token",data.access_token)
+						console.log(data.access_token);
+						console.log(data);
+						return true;
+					}else{return false}
+				}catch(error){
+					console.log(error);	
+				}
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -158,9 +183,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return elm;
 				});
 
+
+
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
 		}
 	};
 };

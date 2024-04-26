@@ -19,7 +19,7 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-light bg-light">
 			<div className="container-fluid">
-				<Link to={"/"} className="navbar-brand"><i class="fa-solid fa-jedi fa-2x"></i></Link>
+				<Link to={"/"} className="navbar-brand"><i className="fa-solid fa-jedi fa-2x"></i></Link>
 				<div className="d-flex">
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0 btn btn-primary">
 						<li className="nav-item dropdown">
