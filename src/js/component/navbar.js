@@ -21,6 +21,7 @@ export const Navbar = () => {
 			<div className="container-fluid">
 				<Link to={"/"} className="navbar-brand"><i className="fa-solid fa-jedi fa-2x"></i></Link>
 				<div className="d-flex">
+					<Link to={"/login"} className="btn btn-primary me-auto">Login</Link>
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0 btn btn-primary">
 						<li className="nav-item dropdown">
           					<a className="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

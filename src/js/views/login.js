@@ -5,16 +5,16 @@ import { Context } from "../store/appContext";
 
 
 export const Login = () => {
+    const {store, actions}= useContext(Context)
+ 
     const [email,setEmail]= useState("")
     const [password,setPassword]= useState("")
 
-    const {store, actions}= useContext(Context)
     
     const navigate = useNavigate()
 
     function handleSubmit() {
-        
-        actions.login(email,password);
+        actions.login(email, password);
         // navigate("/");
     }
     
