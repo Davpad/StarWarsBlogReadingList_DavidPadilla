@@ -177,6 +177,108 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
+			addFavoriteCharacter: async () => {
+				let token = localStorage.getItem("token")
+				try{
+					let response = await fetch(`https://stunning-system-jjjj99j6jqpvfpj9j-3000.app.github.dev/favorite/character/${uid}`,{
+						method: "POST",
+						headers:{
+							"Content-Type":"application/json",
+							"Authorization":"Bearer "+token
+						},
+					})
+					let data = await response.json()
+					// console.log(email);
+					if (response.status === 200){
+						console.log(data);
+						return true;
+					}else{
+						return false;
+					}
+
+					}catch(error){
+						console.log(error);
+						return false;	
+				}
+			},
+
+			addFavoritePlanet: async () => {
+				let token = localStorage.getItem("token")
+				try{
+					let response = await fetch(`https://stunning-system-jjjj99j6jqpvfpj9j-3000.app.github.dev/favorite/planet/${uid}`,{
+						method: "POST",
+						headers:{
+							"Content-Type":"application/json",
+							"Authorization":"Bearer "+token
+						},
+					})
+					let data = await response.json()
+					// console.log(email);
+					if (response.status === 200){
+
+						console.log(data);
+						return true;
+					}else{
+						return false;
+					}
+
+					}catch(error){
+						console.log(error);
+						return false;	
+				}
+			},
+
+			addFavoriteVehicle: async () => {
+				let token = localStorage.getItem("token")
+				try{
+					let response = await fetch(`https://stunning-system-jjjj99j6jqpvfpj9j-3000.app.github.dev/favorite/vehicle/${uid}`,{
+						method: "POST",
+						headers:{
+							"Content-Type":"application/json",
+							"Authorization":"Bearer "+token
+						},
+					})
+					let data = await response.json()
+					// console.log(email);
+					if (response.status === 200){
+
+						console.log(data);
+						return true;
+					}else{
+						return false;
+					}
+
+					}catch(error){
+						console.log(error);
+						return false;	
+				}
+			},
+
+			getFavorites: async () => {
+				let token = localStorage.getItem("token")
+				try{
+					let response = await fetch(`https://stunning-system-jjjj99j6jqpvfpj9j-3000.app.github.dev/users/favorites`,{
+						method: "GET",
+						headers:{
+							"Content-Type":"application/json",
+							"Authorization":"Bearer "+token
+						},
+					})
+					let data = await response.json()
+					console.log(email);
+					if (response.status === 200){
+						setStore({favorites:data.results})
+						return true;
+					}else{
+						return false;
+					}
+
+					}catch(error){
+						console.log(error);
+						return false;	
+				}
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

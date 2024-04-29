@@ -9,7 +9,7 @@ export const Navbar = () => {
 
 	const {store, actions}= useContext(Context)
 
-	const arrFavorites = store.favorites.map((name,index)=> <li key={index} className="justify-content-left">{name}<span className="text-danger fw-bold" onClick={()=>actions.deleteFavorite(name)}> X</span></li>)
+	const arrFavorites = store.favorites.map((name,id)=> <li key={id} className="justify-content-left">{name}<span className="text-danger fw-bold" onClick={()=>actions.deleteFavorite(id)}> X</span></li>)
 
 	// function deleteFavorite(index){
 	// 	const filteredFavorites = store.favorites.filter((i) => i !== index);
