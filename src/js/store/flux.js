@@ -171,9 +171,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return false;
 					}
 
-					}catch(error){
-						console.log(error);
-						return false;	
+				}catch(error){
+					console.log(error);
+					return false;	
 				}
 			},
 
@@ -196,9 +196,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return false;
 					}
 
-					}catch(error){
-						console.log(error);
-						return false;	
+				}catch(error){
+					console.log(error);
+					return false;	
 				}
 			},
 
@@ -222,9 +222,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return false;
 					}
 
-					}catch(error){
-						console.log(error);
-						return false;	
+				}catch(error){
+					console.log(error);
+					return false;	
 				}
 			},
 
@@ -248,9 +248,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return false;
 					}
 
-					}catch(error){
-						console.log(error);
-						return false;	
+				}catch(error){
+					console.log(error);
+					return false;	
 				}
 			},
 
@@ -261,21 +261,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 						method: "GET",
 						headers:{
 							"Content-Type":"application/json",
-							"Authorization":"Bearer "+token
+							"Authorization":"Bearer "+ token
 						},
 					})
 					let data = await response.json()
-					console.log(email);
+
 					if (response.status === 200){
 						setStore({favorites:data.results})
-						return true;
 					}else{
-						return false;
+						return [];
 					}
 
-					}catch(error){
-						console.log(error);
-						return false;	
+				}catch(error){
+					console.log(error);
+					return [];	
 				}
 			},
 

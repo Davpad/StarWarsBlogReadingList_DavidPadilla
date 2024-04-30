@@ -16,6 +16,7 @@ export const Home = () => {
 		actions.getAllCharacters()
 		actions.getAllPlanets()
 		actions.getAllVehicles()
+		actions.getFavorites()
 
 
 	},[]);

@@ -15,7 +15,7 @@ export const Login = () => {
 
     function handleSubmit() {
         actions.login(email, password);
-        // navigate("/");
+        navigate("/");
     }
     
     return(

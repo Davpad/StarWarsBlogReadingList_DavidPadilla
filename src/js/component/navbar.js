@@ -9,30 +9,42 @@ export const Navbar = () => {
 
 	const {store, actions}= useContext(Context)
 
-	const arrFavorites = store.favorites.map((name,id)=> <li key={id} className="justify-content-left">{name}<span className="text-danger fw-bold" onClick={()=>actions.deleteFavorite(id)}> X</span></li>)
+
 
 	// function deleteFavorite(index){
 	// 	const filteredFavorites = store.favorites.filter((i) => i !== index);
 		
 	// }
-
+	let token = localStorage.getItem("token")
 	return (
 		<nav className="navbar navbar-light bg-light">
 			<div className="container-fluid">
 				<Link to={"/"} className="navbar-brand"><i className="fa-solid fa-jedi fa-2x"></i></Link>
-				<div className="d-flex">
-					<Link to={"/login"} className="btn btn-primary me-auto">Login</Link>
-					<ul className="navbar-nav me-auto mb-2 mb-lg-0 btn btn-primary">
-						<li className="nav-item dropdown">
-          					<a className="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            					Favorites
-          					</a>
-          					<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-							{arrFavorites}
-          					</ul>
-        				</li>
-					</ul>
-				</div>
+					<div className="d-flex">
+						{token ?
+							<div className="btn-group me-2">
+								<button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+									Favorites<span className="badge bg-secondary mx-1"></span>
+								</button>
+								<ul className="dropdown-menu">
+
+										
+										{store.favorites.map((elem,indexCat)=> (
+											(elem.map((item,index)=> (								
+												<li key={index} className="d-flex justify-content-between text-primary">
+													{item.name}
+													<button className="text-danger fw-bold" onClick={()=>actions.deleteFavorite(indexCat,item.uid)}> X</button>
+												</li>
+											)))
+										))}
+
+								</ul>
+							
+							</div>
+
+						:(<Link to="/login" className="btn btn-primary me-auto">Login</Link>)}
+
+					</div>
 			</div>
 		</nav>
 	);

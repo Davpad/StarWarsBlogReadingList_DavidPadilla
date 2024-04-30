@@ -8,7 +8,6 @@ import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
 import { DetailsCharacter } from "./views/detailsCharacter";
 import { DetailsPlanet } from "./views/detailsPlanet";
 import { DetailsVehicle } from "./views/detailsVehicle";
