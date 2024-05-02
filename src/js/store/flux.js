@@ -142,9 +142,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(getStore().favorites);
 			},
 
-			deleteFavorite:(index)=>{
-				const filteredFavorites = getStore().favorites.filter((i) => i !== index);
-				setStore({favorites: filteredFavorites});
+			deleteFavorite:(indexCat,index)=>{
+				if (indexCat === 0){
+					const filteredFavorites = getStore().favorites[indexCat].filter((i) => i !== index);
+					setStore({favorites: filteredFavorites});
+				}else if (indexCat ===1){
+					const filteredFavorites = getStore().favorites[indexCat].filter((i) => i !== index);
+					setStore({favorites: filteredFavorites});
+				}else{
+					const filteredFavorites = getStore().favorites[indexCat].filter((i) => i !== index);
+					setStore({favorites: filteredFavorites});
+				}
+				// const filteredFavorites = favorites.filter((i) => i !== index);
+				// setStore({favorites: filteredFavorites});
 			},
 
 			login: async (email, password) => {

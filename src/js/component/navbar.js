@@ -11,10 +11,6 @@ export const Navbar = () => {
 
 
 
-	// function deleteFavorite(index){
-	// 	const filteredFavorites = store.favorites.filter((i) => i !== index);
-		
-	// }
 	let token = localStorage.getItem("token")
 	return (
 		<nav className="navbar navbar-light bg-light">
@@ -26,14 +22,12 @@ export const Navbar = () => {
 								<button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 									Favorites<span className="badge bg-secondary mx-1"></span>
 								</button>
-								<ul className="dropdown-menu">
-
-										
+								<ul className="dropdown-menu">	
 										{store.favorites.map((elem,indexCat)=> (
 											(elem.map((item,index)=> (								
 												<li key={index} className="d-flex justify-content-between text-primary">
 													{item.name}
-													<button className="text-danger fw-bold" onClick={()=>actions.deleteFavorite(indexCat,item.uid)}> X</button>
+													<span className="text-danger fw-bold" onClick={()=>actions.deleteFavorite(indexCat,item.uid)}> X</span>
 												</li>
 											)))
 										))}
@@ -42,7 +36,7 @@ export const Navbar = () => {
 							
 							</div>
 
-						:(<Link to="/login" className="btn btn-primary me-auto">Login</Link>)}
+						:<Link to="/login" className="btn btn-primary me-auto">Login</Link>}
 
 					</div>
 			</div>
