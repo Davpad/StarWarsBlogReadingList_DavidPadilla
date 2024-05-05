@@ -187,10 +187,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			addFavoriteCharacter: async () => {
+			addFavoriteCharacter: async (id) => {
 				let token = localStorage.getItem("token")
 				try{
-					let response = await fetch(`https://stunning-system-jjjj99j6jqpvfpj9j-3000.app.github.dev/favorite/character/${uid}`,{
+					let response = await fetch(`https://stunning-system-jjjj99j6jqpvfpj9j-3000.app.github.dev/favorite/people/${id}`,{
 						method: "POST",
 						headers:{
 							"Content-Type":"application/json",

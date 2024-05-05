@@ -22,7 +22,7 @@ export const Navbar = () => {
 								<button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 									Favorites<span className="badge bg-secondary mx-1"></span>
 								</button>
-								<ul className="dropdown-menu">	
+								<ul className="dropdown-menu dropdown-menu-lg-end">	
 										{store.favorites.map((elem,indexCat)=> (
 											(elem.map((item,index)=> (								
 												<li key={index} className="d-flex justify-content-between text-primary">

@@ -16,7 +16,7 @@ export const CardCharacter = (props) => {
             <p className="card-text"></p>
             <div className="d-flex justify-content-between">            
                 <Link to={"/detailsCharacter/"+props.id} className="btn btn-primary">Learn more</Link>
-                <span><i className="far fa-heart" onClick={()=>actions.addFavorite(props.name, props.id)}></i></span>
+                <span><i className="far fa-heart" onClick={()=>actions.addFavoriteCharacter(props.id)}></i></span>
             </div>
 
         </div>
