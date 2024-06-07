@@ -187,6 +187,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
+			logout: () => {
+				localStorage.removeItem("token")
+			},
+
 			addFavoriteCharacter: async (id) => {
 				let token = localStorage.getItem("token")
 				try{
