@@ -12,6 +12,7 @@ import { DetailsCharacter } from "./views/detailsCharacter";
 import { DetailsPlanet } from "./views/detailsPlanet";
 import { DetailsVehicle } from "./views/detailsVehicle";
 import { Login } from "./views/login";
+import { Signup } from "./views/signup";
 
 //create your first component
 const Layout = () => {
@@ -28,6 +29,7 @@ const Layout = () => {
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/login" element={<Login />} />
+						<Route path="/signup" element={<Signup />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="/detailsCharacter/:id" element={<DetailsCharacter />} />
 						<Route path="/detailsPlanet/:id" element={<DetailsPlanet />} />

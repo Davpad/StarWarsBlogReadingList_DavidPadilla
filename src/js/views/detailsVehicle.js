@@ -13,7 +13,7 @@ export const DetailsVehicle = () => {
     useEffect(()=>{
 		actions.getVehicle(params.id)
 	},[]);
-    // console.log(store.vehicle);
+    console.log(store.vehicle);
 
 	return (
 		<>

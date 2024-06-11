@@ -157,9 +157,42 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// setStore({favorites: filteredFavorites});
 			},
 
-			login: async (email, password) => {
+			login: async (email, password, navigate) => {
 				try{
 					let response = await fetch('https://stunning-system-jjjj99j6jqpvfpj9j-3000.app.github.dev/login',{
+						method: "POST",
+						headers:{
+							"Content-Type":"application/json" 
+						},
+						body: JSON.stringify({
+							email:email,
+							password:password
+						})
+					})
+					let data = await response.json()
+					console.log(email);
+					if (response.status === 200){
+						console.log(data.access_token);
+						localStorage.setItem("token", data.access_token);
+						navigate("/");
+						console.log(data);
+						return true;
+					}else if (response.status === 404) {
+						navigate("/signup");
+						return true;
+					}else{
+						return false;
+					}
+
+				}catch(error){
+					console.log(error);
+					return false;	
+				}
+			},
+
+			signup: async (email, password) => {
+				try{
+					let response = await fetch('https://stunning-system-jjjj99j6jqpvfpj9j-3000.app.github.dev/signup',{
 						method: "POST",
 						headers:{
 							"Content-Type":"application/json" 

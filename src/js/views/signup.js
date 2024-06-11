@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 
 
 
-export const Login = () => {
+export const Signup = () => {
     const {store, actions}= useContext(Context)
  
     const [email,setEmail]= useState("")
@@ -13,9 +13,9 @@ export const Login = () => {
     
     const navigate = useNavigate()
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        actions.login(email, password, navigate);
+    function handleSubmit() {
+        actions.signup(email, password);
+        navigate("/");
     }
     
     return(
@@ -31,7 +31,7 @@ export const Login = () => {
         <input type="password" className="form-control" id="exampleInputPassword" placeholder="Password" onChange={e => setPassword(e.target.value)} value={password} />
       </div>
         <div>
-            <button type="submit" className="btn btn-primary">Login</button>
+            <button type="submit" className="btn btn-primary">Sign up</button>
         </div>
       </form>
     </>
